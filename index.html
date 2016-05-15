@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="">
+<html lang="en" ng-app="waitstaff">
 
 <head>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type="text/css">
@@ -10,7 +10,7 @@
     <title>Waitstaff Calculator</title>
 </head>
 
-<body>
+<body ng-controller="calculator">
     <div class="container text-center">
         <h1>Waitstaff Calculator</h1>
         </header>
@@ -22,29 +22,30 @@
         <div class="container text-left">
             <section class="meal-details">
                 <h3>Enter Details for Meal 1</h3>
-                <form>
+                <form novalidate>
                     <div class="form-group">
-                        <label for="">Base Meal Price</label>
+                        <label for="mealPrice">Base Meal Price</label>
                         <div class="input-group">
                             <div class="input-group-addon">$</div>
-                            <input type="number" class="form-control" placeholder="0.00" ng-init="mealPrice=0" ng-model="mealPrice">
+                            <input type="number" class="form-control" placeholder="0.00" ng-model="mealPrice" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="">Tax Rate</label>
+                        <label for="taxRate">Tax Rate</label>
                         <div class="input-group">
                             <div class="input-group-addon">%</div>
-                            <input type="number" class="form-control" placeholder="0.00" ng-init="taxRate=0" ng-model="taxRate">
+                            <input type="number" class="form-control" placeholder="0.00" ng-model="taxRate" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="">Tip Percentage</label>
+                        <label for="tipPercent">Tip Percentage</label>
                         <div class="input-group">
                             <div class="input-group-addon">%</div>
-                            <input type="number" class="form-control" placeholder="0.00" ng-init="tipPercent=0" ng-model="tipPercent">
+                            <input type="number" class="form-control" placeholder="0.00" ng-model="tipPercent" required>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-default">Add Meal</button>
+                    <button ng-click="calculateMealValues()" type="submit" class="btn btn-default">Add Meal</button>
+                    <button ng-click="resetVariables()" class="btn btn-default">Cancel</button>
                 </form>
             </section>
             <section class="charge-overview">
@@ -53,21 +54,20 @@
                 <button class="btn btn-default">&lt; Previous Meal</button>
                 <button class="btn btn-default">Next Meal &gt;</button>
                 -->
-                <h3>Meal 1</h3>
-                <h4>Subtotal: ${{mealPrice + (mealPrice * (taxRate/100))}}</h4>
-                <h4>Tip: ${{(mealPrice + (mealPrice * (taxRate/100))) * ( tipPercent/100 )}}</h4>
+                <h4>Subtotal: ${{subtotal | number:2}}</h4>
+                <h4>Tip: ${{tip | number:2}}</h4>
                 <hr>
-                <h4>Total: ${{(mealPrice + (mealPrice * (taxRate/100))) + ((mealPrice + (mealPrice * (taxRate/100))) * ( tipPercent/100 ))}}</h4>
+                <h4>Total: ${{total | number:2}}</h4>
             </section>
             <section class="earnings-info">
                 <h3>Earnings Information</h3>
-                <h4>Tip Total:</h4>
-                <h4>Meal Count:</h4>
-                <h4>Average Tip Per Meal:</h4>
+                <h4>Tip Total: ${{earningsTipTotal | number:2}}</h4>
+                <h4>Meal Count: {{mealCount}}</h4>
+                <h4>Average Tip Per Meal: ${{earningsAvgTip | number:2}}</h4>
             </section>
             <footer>
                 <div class="reset">
-                    <button class="btn btn-default">Reset All</button>
+                    <button class="btn btn-default" ng-click="init()">Reset All</button>
                 </div>
             </footer>
         </div>
