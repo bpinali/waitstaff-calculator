@@ -1,11 +1,24 @@
+h1 {
+  margin: 40px 0 40px 0;
+}
 .container {
   width: 600px;
+}
+.meal-details, .charge-overview, .earnings-info {
+  margin-top: 40px;
+}
+ul {
+  font-size: 18px;
+}
+.error {
+  color: red;
+}
+footer {
+  position: absolute;
+  top: 600px;
 }
 @media only screen and (max-width: 800px) {
   .container {
     width: 100%;
   }
-}
-ul {
-  font-size: 18px;
 }

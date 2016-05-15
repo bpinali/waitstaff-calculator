@@ -16,16 +16,39 @@ app.controller('calculator', ['$scope', function($scope) {
       $scope.mealCount = 0;
       $scope.earningsAvgTip = 0;
     };
-    $scope.calculateMealValues = function() {
-      $scope.subtotal = $scope.mealPrice + ($scope.mealPrice * ($scope.taxRate/100));
-      $scope.tip = ($scope.mealPrice + ($scope.mealPrice * ($scope.taxRate/100))) * ($scope.tipPercent/100);
-      $scope.total = $scope.subtotal + $scope.tip;
-    };
     $scope.init = function() {
         $scope.resetVariables();
         $scope.initCharges();
         $scope.initEarnings();
-        $scope.calculateMealValues();
     };
+
     $scope.init();
+
+    $scope.submitMealDetails = function () {
+       if ($scope.enterMealDetails.$invalid) {
+           $scope.formError = "Please enter valid meal details.";
+       } else {
+           $scope.formError = "";
+           $scope.earningsTipTotal += $scope.tip;
+           $scope.mealCount++;
+       }
+   };
+   $scope.$watchGroup(['mealPrice', 'taxRate', 'tipPercent'], function (newValues, oldValues, scope) {
+       if ($scope.enterMealDetails.$invalid) {
+           $scope.initCharges();
+       } else {
+           $scope.formError = "";
+           $scope.subtotal = $scope.mealPrice * (1 + $scope.taxRate / 100);
+           $scope.tip = $scope.mealPrice * ($scope.tipPercent / 100);
+           $scope.total = $scope.subtotal + $scope.tip;
+       }
+   });
+   $scope.$watchGroup(['tipTotal', 'mealCount'], function (newValues, oldValues, scope) {
+        if ($scope.mealCount !== 0) {
+            $scope.earningsAvgTip = $scope.earningsTipTotal / $scope.mealCount;
+        } else {
+            $scope.earningsAvgTip = 0;
+        }
+
+    });
 }]);
