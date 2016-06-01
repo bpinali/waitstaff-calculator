@@ -1,0 +1,30 @@
+<section class="meal-details tab-pane active" id="meal">
+    <h3>Enter Details for Meal 1</h3>
+    <form name="enterMealDetails" ng-submit="submitMealDetails()" novalidate>
+        <div class="form-group">
+            <label for="mealPrice">Menu Meal Price</label>
+            <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input type="number" class="form-control" placeholder="0.00" ng-model="mealPrice" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="taxRate">Tax Rate</label>
+            <div class="input-group">
+                <div class="input-group-addon">%</div>
+                <input type="number" class="form-control" placeholder="0.00" ng-model="taxRate" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tipPercent">Tip Percentage</label>
+            <div class="input-group">
+                <div class="input-group-addon">%</div>
+                <input type="number" class="form-control" placeholder="0.00" ng-model="tipPercent" required>
+            </div>
+        </div>
+        <div class="error" ng-show="formError !== ''">Please enter valid meal details.</div>
+        <br>
+        <button type="submit" class="btn btn-default">Add Meal</button>
+        <button ng-click="resetVariables()" class="btn btn-default">Cancel</button>
+    </form>
+</section>
