@@ -10,29 +10,38 @@
     <title>Waitstaff Calculator</title>
 </head>
 
-<body ng-controller="calculator">
+<body>
     <div class="container text-center">
         <h1>Waitstaff Calculator</h1>
         </header>
-        <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#meal">Meal Details</a></li>
-            <li><a data-toggle="tab" href="#charge">Charge Overview</a></li>
-            <li><a data-toggle="tab" href="#earnings">Earnings Info</a></li>
+        <ul class="nav nav-inline" ng-controller="navControl">
+            <li><a href="#/details">Meal Details</a></li>
+            <li><a href="#/charges">Charge Overview</a></li>
+            <li><a href="#/earnings">Earnings Info</a></li>
         </ul>
-        <div class="tab-content text-left">
+        <!--<div class="nav" ng-controller="navControl">
+              <ul>
+                  <li><a href="#/details">Meal Details</a></li>
+                  <li><a href="#/charges">Charge Overview</a></li>
+                  <li><a href="#/earnings">Earnings Info</a></li>
+
+              </ul>
+          </div>-->
+        <div class="text-left" ng-view>
 
 
 
         </div>
         <footer>
             <div class="reset">
-                <button class="btn btn-default" ng-click="init()">Reset All</button>
+                <button class="btn btn-default" ng-click="resetVariables()">Reset All</button>
             </div>
         </footer>
     </div>
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-route.js"></script>
     <script src="scripts/app.js"></script>
 </body>
 

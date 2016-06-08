@@ -15,7 +15,7 @@ ul {
 }
 footer {
   position: absolute;
-  top: 600px;
+  top: 700px;
 }
 @media only screen and (max-width: 800px) {
   .container {
