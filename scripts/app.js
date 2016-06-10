@@ -46,7 +46,7 @@ app.service('dataService', function() {
             mealData = {
                 earningsTipTotal: 0,
                 mealCount: 0,
-                earningsAvgTip: 0,
+                earningsAvgTip: 0
             };
         }
     };

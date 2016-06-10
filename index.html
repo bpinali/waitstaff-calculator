@@ -2,7 +2,7 @@
 <html lang="en" ng-app="waitstaff">
 
 <head>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,11 +14,14 @@
     <div class="container text-center">
         <h1>Waitstaff Calculator</h1>
         </header>
-        <ul class="nav nav-inline" ng-controller="navControl">
+        <div class="navigation">
+        <ul class="nav nav-pills" ng-controller="navControl">
             <li><a href="#/details">Meal Details</a></li>
             <li><a href="#/charges">Charge Overview</a></li>
             <li><a href="#/earnings">Earnings Info</a></li>
         </ul>
+      </div>
+      <hr>
         <!--<div class="nav" ng-controller="navControl">
               <ul>
                   <li><a href="#/details">Meal Details</a></li>
@@ -33,7 +36,7 @@
 
         </div>
         <footer>
-            <div class="reset">
+            <div class="reset" ng-controller="resetController">
                 <button class="btn btn-default" ng-click="resetVariables()">Reset All</button>
             </div>
         </footer>
