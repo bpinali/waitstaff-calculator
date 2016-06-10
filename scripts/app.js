@@ -15,7 +15,7 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'earningsController'
         })
         .otherwise({
-            redirectTo: '/charges'
+            redirectTo: '/details'
         });
 }]);
 
