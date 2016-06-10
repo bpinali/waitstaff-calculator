@@ -1,24 +1,55 @@
+body {
+  font-family: 'Roboto Slab', serif;
+  background-color: #264073;
+}
 h1 {
-  margin: 40px 0 40px 0;
+  margin: 30px 0 30px 0;
+}
+h3 {
+  margin-bottom: 25px;
 }
 .container {
   width: 600px;
+  border: 1px solid #d9d9d9;
+  background-color: #fafafa;
+  padding: 30px;
+  margin-top: 75px;
+  -webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 20px;
+-webkit-box-shadow: 0px 20px 0px 0px rgba(0,0,0,0.15);
+-moz-box-shadow: 0px 20px 0px 0px rgba(0,0,0,0.15);
+box-shadow: 0px 20px 0px 0px rgba(0,0,0,0.15);
+clear: both;
 }
 .meal-details, .charge-overview, .earnings-info {
   margin-top: 40px;
 }
-ul {
-  font-size: 18px;
+.navigation {
+  text-align: center;
+}
+.nav-pills>li>a {
+  font-size: 20px;
+}
+.reset {
+  text-align: left;
+  margin-top: 35px;
+}
+.btn {
+  -webkit-box-shadow: 0px 4px 0px 0px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0px 4px 0px 0px rgba(0,0,0,0.15);
+  box-shadow: 0px 4px 0px 0px rgba(0,0,0,0.15);
+  margin-right: 10px;
 }
 .error {
   color: red;
 }
-footer {
-  position: absolute;
-  top: 600px;
-}
 @media only screen and (max-width: 800px) {
   .container {
     width: 100%;
+    -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  margin-top: 0;
   }
 }
