@@ -15,7 +15,7 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'earningsController'
         })
         .otherwise({
-            redirectTo: '/charges'
+            redirectTo: '/details'
         });
 }]);
 
@@ -53,7 +53,6 @@ app.service('dataService', function() {
 });
 
 app.controller('detailsController', function($scope, dataService) {
-  console.log('yo');
 
     $scope.mealCount = 1;
 
