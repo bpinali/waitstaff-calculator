@@ -53,7 +53,6 @@ app.service('dataService', function() {
 });
 
 app.controller('detailsController', function($scope, dataService) {
-  console.log('yo');
 
     $scope.mealCount = 1;
 
