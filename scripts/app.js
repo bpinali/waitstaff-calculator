@@ -1,4 +1,4 @@
-var app = angular.module('waitstaff', ['ngRoute']);
+var app = angular.module('waitstaff', ['ngRoute','ngAnimate']);
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
