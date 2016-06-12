@@ -2,6 +2,5 @@
     <h3>Charge Overview</h3>
     <h4 ng-repeat="meal in meals" ng-show="$index==(mealCount-1)">Subtotal: ${{meal.subtotal | number:2}}</h4>
     <h4 ng-repeat="meal in meals" ng-show="$index==(mealCount-1)">Tip: ${{meal.tip | number:2}}</h4>
-    <hr>
     <h4 ng-repeat="meal in meals" ng-show="$index==(mealCount-1)">Total: ${{meal.total | number:2}}</h4>
 </section>
